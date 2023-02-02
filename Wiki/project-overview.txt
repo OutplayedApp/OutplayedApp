@@ -1,0 +1,18 @@
+Project Name: Outplayed.app
+
+Stack:
+	Frontend:
+		Svelte
+	Backend:
+		Sveltekit:
+			API for frontend
+		Pocketbase:
+			Database solution
+
+Project Definition:
+
+Outplayed.app is a simple webapp where users can go to play quick games
+against one another. Users are able to compete against other and be given
+a rating and corresponding rank, depending on outcomes of their games. Games
+are built to be fast, fun, as well as based on skill rather than luck, while
+only being less than 30 seconds in length.
