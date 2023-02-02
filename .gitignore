@@ -1,5 +1,5 @@
 .DS_Store
-node_modules
+OP_APP/node_modules
 /build
 /.svelte-kit
 /package
