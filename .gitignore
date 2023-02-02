@@ -8,3 +8,4 @@ OP_APP/node_modules
 !.env.example
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
+OP_APP/.svelte-kit
