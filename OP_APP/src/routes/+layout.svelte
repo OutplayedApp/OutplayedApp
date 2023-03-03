@@ -1,4 +1,5 @@
 <script>
+	import '../app.postcss';
 	
     let isMenuOpen = false;
   
