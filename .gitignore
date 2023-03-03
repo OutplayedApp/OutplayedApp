@@ -9,3 +9,4 @@ OP_APP/node_modules
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
 OP_APP/.svelte-kit
+.idea
