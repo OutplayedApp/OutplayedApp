@@ -36,14 +36,14 @@
     <a href="/games" class="mx-4 hover:text-gray-400">Games</a>
     <a href="/account" class="mx-4 hover:text-gray-400">Account</a>
     <a href="/about" class="mx-4 hover:text-gray-400">About</a>
-    <a href="https://github.com" class="mx-4 hover:text-gray-400">GitHub</a>
+    <a href="https://github.com/OutplayedApp/OutplayedApp/tree/master" class="mx-4 hover:text-gray-400">GitHub</a>
     </nav>
     <div class="lg:hidden" class:class={isMenuOpen ? 'block' : 'hidden'}>
     <a href="/profile" class="block px-4 py-2 hover:bg-gray-600">Profile</a>
     <a href="/games" class="block px-4 py-2 hover:bg-gray-600">Games</a>
     <a href="/account" class="block px-4 py-2 hover:bg-gray-600">Account</a>
     <a href="/about" class="block px-4 py-2 hover:bg-gray-600">About</a>
-    <a href="https://github.com" class="block px-4 py-2 hover:bg-gray-600">GitHub</a>
+    <a href="https://github.com/OutplayedApp/OutplayedApp/tree/master" class="block px-4 py-2 hover:bg-gray-600">GitHub</a>
     </div>
 </header>
 
