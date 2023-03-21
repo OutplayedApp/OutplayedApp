@@ -1,9 +1,5 @@
-<p>This is a paragraph.</p>
+<div class="p-12 ">
+	<p class = "italic hover:not-italic">This <br> is <br>a <br>paragraph<br>.</p>
 
-<style>
-	p {
-		color: purple;
-		font-family: 'Comic Sans MS', cursive;
-		font-size: 2em;
-	}
-</style>
+</div>
+
