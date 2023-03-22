@@ -2,35 +2,57 @@
 	import '../app.postcss';
 	import {slide} from "svelte/transition";
 	import { expoInOut } from 'svelte/easing'
+	
 	let isMenuOpen = false;
   
 	function toggleMenu() {
 	  isMenuOpen = !isMenuOpen;
 	}
+
+	function linkClick() {
+		isMenuOpen = false;
+	}
+
 </script>
   
-  <header class="w-screen p-2 fixed flex justify-between items-center bg-gray-700 text-gray-100">
-	<a href="/" class="text-2xl font-bold tracking-widest">My Site</a>
-  
-	<div class="flex relative">
-	  <button class="focus:outline-none" on:click={toggleMenu}>
-		<svg class=" rounded h-8 w-8 fill-current hover:bg-gray-600" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-		  <rect x="4" y="5" width="16" height="2"/>
-		  <rect x="4" y="11" width="16" height="2"/>
-		  <rect x="4" y="17" width="16" height="2"/>
-		</svg>
-	  </button>
+  <header class="h-12 w-screen p-2 fixed flex justify-between items-center bg-gray-700 text-gray-100">
+
+	<div class="container flex flex-wrap justify-start mx-auto">
+		
+		<button class=" justify-start focus:outline-none" on:click={toggleMenu}>
+			<svg class=" rounded h-8 w-8 fill-current hover:bg-gray-600" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+				<rect x="4" y="5" width="16" height="2"/>
+				<rect x="4" y="11" width="16" height="2"/>
+				<rect x="4" y="17" width="16" height="2"/>
+			</svg>
+		</button>
+
+			
+		
+
+		<a on:click={linkClick} href="/" class="px-4 text-2xl font-bold tracking-widest">My Site</a>
+
+		
 	</div>
+
+	<div class="flex justify-end mx-auto">
+		<a on:click={linkClick} href="/" class="text-2xl font-bold tracking-widest">Friends</a>
+		<img src="https://pixlok.com/wp-content/uploads/2021/12/Group-Icon-09ijd.png" class="white h-6 mr-3 sm:h-9" alt="friends lol" />
+	</div>
+
+	
+  
+	
 
   </header>
 
   	{#if isMenuOpen}
-	<div transition:slide class={isMenuOpen ? 'fixed top-12 right-0 w-32 p-2 bg-gray-700 text-gray-100' : 'hidden'}>
-		<a href="/profile" class="block px-4 py-2 hover:bg-gray-600">Profile</a>
-		<a href="/games" class="block px-4 py-2 hover:bg-gray-600">Games</a>
-		<a href="/account" class="block px-4 py-2 hover:bg-gray-600">Account</a>
-		<a href="/about" class="block px-4 py-2 hover:bg-gray-600">About</a>
-		<a href="https://github.com" class="block px-4 py-2 hover:bg-gray-600">GitHub</a>
+	<div transition:slide class={isMenuOpen ? 'fixed top-12 left-0 w-32 p-2 bg-gray-700 text-gray-100' : 'hidden'}>
+		<a on:click={linkClick} href="/profile" class="block px-4 py-2 hover:bg-gray-600">Profile</a>
+		<a on:click={linkClick} href="/games" class="block px-4 py-2 hover:bg-gray-600">Games</a>
+		<a on:click={linkClick} href="/account" class="block px-4 py-2 hover:bg-gray-600">Account</a>
+		<a on:click={linkClick} href="/about" class="block px-4 py-2 hover:bg-gray-600">About</a>
+		<a on:click={linkClick} href="https://github.com" class="block px-4 py-2 hover:bg-gray-600">GitHub</a>
 	</div>
 	{/if}
 
