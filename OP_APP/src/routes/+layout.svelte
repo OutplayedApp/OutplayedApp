@@ -1,7 +1,8 @@
 <script>
 	import '../app.postcss';
-	import {slide} from "svelte/transition";
+	import {slide, draw} from "svelte/transition";
 	import { expoInOut } from 'svelte/easing'
+	import SearchBar from './SearchBar.svelte';
 	
 	let isMenuOpen = false;
   
@@ -15,9 +16,9 @@
 
 </script>
   
-  <header class="h-12 w-screen p-2 fixed flex justify-between items-center bg-gray-700 text-gray-100">
+  <header class="h-12 w-screen p-2 flex justify-between bg-gray-700 text-gray-100">
 
-	<div class="container flex flex-wrap justify-start mx-auto">
+	<div class="flex justify-start ">
 		
 		<button class=" justify-start focus:outline-none" on:click={toggleMenu}>
 			<svg class=" rounded h-8 w-8 fill-current hover:bg-gray-600" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -30,12 +31,16 @@
 			
 		
 
-		<a on:click={linkClick} href="/" class="px-4 text-2xl font-bold tracking-widest">My Site</a>
-
+		<a on:click={linkClick} href="/" class="pl-2 text-2xl font-bold tracking-widest">OUTPLAYED</a>
 		
 	</div>
 
-	<div class="flex justify-end mx-auto">
+	<div class="px-4 flex flex-grow justify-end">
+        <SearchBar placeholder="search it up"/>
+    </div>
+
+
+	<div class="flex justify-self-end">
 		<a on:click={linkClick} href="/" class="text-2xl font-bold tracking-widest">Friends</a>
 		<img src="https://pixlok.com/wp-content/uploads/2021/12/Group-Icon-09ijd.png" class="white h-6 mr-3 sm:h-9" alt="friends lol" />
 	</div>
