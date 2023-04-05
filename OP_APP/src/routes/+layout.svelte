@@ -16,7 +16,7 @@
 
 </script>
   
-  <header class="h-12 w-screen p-2 flex justify-between bg-gray-700 text-gray-100">
+  <header class="h-12 w-screen p-2 flex justify-between bg-gray-700 text-gray-100 sticky top-0">
 
 	<div class="flex justify-start ">
 		
@@ -57,7 +57,7 @@
 		<a on:click={linkClick} href="/games" class="block px-4 py-2 hover:bg-gray-600">Games</a>
 		<a on:click={linkClick} href="/account" class="block px-4 py-2 hover:bg-gray-600">Account</a>
 		<a on:click={linkClick} href="/about" class="block px-4 py-2 hover:bg-gray-600">About</a>
-		<a on:click={linkClick} href="https://github.com" class="block px-4 py-2 hover:bg-gray-600">GitHub</a>
+		<a on:click={linkClick} href="https://github.com/OutplayedApp/OutplayedApp" class="block px-4 py-2 hover:bg-gray-600">GitHub</a>
 	</div>
 	{/if}
 
