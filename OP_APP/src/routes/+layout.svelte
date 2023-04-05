@@ -52,10 +52,11 @@
   </header>
 
   	{#if isMenuOpen}
-	<div transition:slide class={isMenuOpen ? 'fixed top-12 left-0 w-32 p-2 bg-gray-700 text-gray-100' : 'hidden'}>
+	<div transition:slide class={isMenuOpen ? 'fixed top-12 left-0 w-32 bg-gray-700 text-gray-100' : 'hidden'}>
 		<a on:click={linkClick} href="/profile" class="block px-4 py-2 hover:bg-gray-600">Profile</a>
 		<a on:click={linkClick} href="/games" class="block px-4 py-2 hover:bg-gray-600">Games</a>
 		<a on:click={linkClick} href="/account" class="block px-4 py-2 hover:bg-gray-600">Account</a>
+		<a on:click={linkClick} href="/login" class="block px-4 py-2 hover:bg-gray-600">Log in</a>
 		<a on:click={linkClick} href="/about" class="block px-4 py-2 hover:bg-gray-600">About</a>
 		<a on:click={linkClick} href="https://github.com/OutplayedApp/OutplayedApp" class="block px-4 py-2 hover:bg-gray-600">GitHub</a>
 	</div>
