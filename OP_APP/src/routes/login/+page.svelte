@@ -1,8 +1,19 @@
-<div class="h-full w-full ">
-	<p>This is a box. It can contain anything.</p>
+<script>
+	import sky from "$lib/images/skybackground.jpg"
+	let name = 'sky background'
+</script>
+
+
+
+
+<div class="h-full w-full">
+	<img src={sky} alt="{name}"/>
+	
 	
 
 </div>
+
+
 
 
 

@@ -16,7 +16,7 @@
 
 </script>
   
-  <header class="h-12 w-screen p-2 flex justify-between bg-gray-700 text-gray-100 sticky top-0">
+  <header class="h-12 w-full p-2 flex justify-between bg-gray-700 text-gray-100 sticky top-0">
 
 	<div class="flex justify-start ">
 		
