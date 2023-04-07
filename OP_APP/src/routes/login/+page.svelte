@@ -15,7 +15,7 @@
 
 
 
-<div class="h-[calc(100vh-48px)] w-full flex items-center justify-center overflow-hidden">
+<div class="mt-[48px] h-[calc(100vh-48px)] w-full flex items-center justify-center overflow-hidden">
 	
 
 	<img class="object-cover h-[calc(100vh-48px)] w-full" src={sky} alt="{name}"/>
@@ -35,7 +35,7 @@
 			</div>
 			<div class="mb-2">
 				<input 
-					class="shadow appearance-none border border-red-500 rounded w-full py-2 px-3 text-gray-700 mb-3 leading-normal focus:outline-none focus:shadow-outline" 
+					class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-normal focus:outline-none focus:shadow-outline" 
 					id="password" 
 					type="password" 
 					placeholder="Password">

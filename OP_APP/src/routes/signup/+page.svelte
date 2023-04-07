@@ -15,7 +15,7 @@
 <!-- sign up page, almost identical to login-->
 
 
-<div class="h-[calc(100vh-48px)] w-full flex items-center justify-center overflow-hidden">
+<div class="mt-[48px] h-[calc(100vh-48px)] w-full flex items-center justify-center overflow-hidden">
 	
 
 	<img class="object-cover h-[calc(100vh-48px)] w-full" src={sky} alt="{name}"/>
