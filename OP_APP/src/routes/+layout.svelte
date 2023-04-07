@@ -16,7 +16,7 @@
 
 </script>
   
-  <header class="h-12 w-full p-2 flex justify-between bg-gray-700 text-gray-100 sticky top-0">
+  <header class="h-12 w-full p-2 hover:drop-shadow-lg flex justify-between bg-midnight text-gray-100 sticky top-0">
 
 	<div class="flex justify-start ">
 		
@@ -52,12 +52,12 @@
   </header>
 
   	{#if isMenuOpen}
-	<div transition:slide class={isMenuOpen ? 'fixed top-12 left-0 w-32 bg-gray-700 text-gray-100' : 'hidden'}>
-		<a on:click={linkClick} href="/profile" class="block px-4 py-2 hover:bg-gray-600">Profile</a>
-		<a on:click={linkClick} href="/games" class="block px-4 py-2 hover:bg-gray-600">Games</a>
-		<a on:click={linkClick} href="/account" class="block px-4 py-2 hover:bg-gray-600">Account</a>
-		<a on:click={linkClick} href="/login" class="block px-4 py-2 hover:bg-gray-600">Log in</a>
-		<a on:click={linkClick} href="/about" class="block px-4 py-2 hover:bg-gray-600">About</a>
+	<div transition:slide class={isMenuOpen ? 'fixed top-12 left-0 w-32 bg-midnight text-gray-100 drop-shadow-xl' : 'hidden'}>
+		<a on:click={linkClick} href="/profile" class="block px-4 py-2 hover:bg-gray-600 hover:shadow-md">Profile</a>
+		<a on:click={linkClick} href="/games" class="block px-4 py-2 hover:bg-gray-600 hover:shadow-md">Games</a>
+		<a on:click={linkClick} href="/account" class="block px-4 py-2 hover:bg-gray-600 hover:shadow-md">Account</a>
+		<a on:click={linkClick} href="/login" class="block px-4 py-2 hover:bg-gray-600 hover:shadow-md">Log in</a>
+		<a on:click={linkClick} href="/about" class="block px-4 py-2 hover:bg-gray-600 hover:shadow-md">About</a>
 		<a on:click={linkClick} href="https://github.com/OutplayedApp/OutplayedApp" class="block px-4 py-2 hover:bg-gray-600">GitHub</a>
 	</div>
 	{/if}
