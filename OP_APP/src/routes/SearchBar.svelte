@@ -1,14 +1,13 @@
 <script>
-    export let placeholder = 'Search...';
-  </script>
+    
+</script>
   
-  <div class="">
-    <div class="relative">
-      <input
-        type="text"
-        class="block w-full h-auto px-4 py-1.5 align-bottom border border-gray-300 rounded-md shadow-sm text-stone-800 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
-        placeholder={placeholder}
-      />
-    </div>
-  </div>
+
+<div class="relative">
+    <input 
+				class="shadow-sm appearance-none border rounded-md w-full py-1.5 px-4 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
+				type="text" 
+				 placeholder="Type something">
+</div>
+
   

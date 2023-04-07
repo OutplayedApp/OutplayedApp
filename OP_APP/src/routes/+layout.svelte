@@ -36,13 +36,12 @@
 	</div>
 
 	<div class="px-4 flex flex-grow justify-end">
-        <SearchBar placeholder="search it up"/>
+        <SearchBar/>
     </div>
 
 
 	<div class="flex justify-self-end">
-		<a on:click={linkClick} href="/" class="text-2xl font-bold tracking-widest">Friends</a>
-		<img src="https://pixlok.com/wp-content/uploads/2021/12/Group-Icon-09ijd.png" class="white h-6 mr-3 sm:h-9" alt="friends lol" />
+		<a on:click={linkClick} href="/login" class="px-2 rounded text-2xl font-bold tracking-widest hover:bg-gray-600 hover:shadow-lg">LOGIN</a>
 	</div>
 
 	
@@ -53,10 +52,8 @@
 
   	{#if isMenuOpen}
 	<div transition:slide class={isMenuOpen ? 'fixed top-12 left-0 w-32 bg-midnight text-gray-100 drop-shadow-xl' : 'hidden'}>
-		<a on:click={linkClick} href="/profile" class="block px-4 py-2 hover:bg-gray-600 hover:shadow-md">Profile</a>
-		<a on:click={linkClick} href="/games" class="block px-4 py-2 hover:bg-gray-600 hover:shadow-md">Games</a>
 		<a on:click={linkClick} href="/account" class="block px-4 py-2 hover:bg-gray-600 hover:shadow-md">Account</a>
-		<a on:click={linkClick} href="/login" class="block px-4 py-2 hover:bg-gray-600 hover:shadow-md">Log in</a>
+		<a on:click={linkClick} href="/games" class="block px-4 py-2 hover:bg-gray-600 hover:shadow-md">Games</a>
 		<a on:click={linkClick} href="/about" class="block px-4 py-2 hover:bg-gray-600 hover:shadow-md">About</a>
 		<a on:click={linkClick} href="https://github.com/OutplayedApp/OutplayedApp" class="block px-4 py-2 hover:bg-gray-600">GitHub</a>
 	</div>
