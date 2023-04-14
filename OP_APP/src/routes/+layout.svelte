@@ -35,48 +35,6 @@
 		<a on:click={linkClick} href="/" class="pl-2 text-2xl font-bold tracking-widest">OUTPLAYED</a>
 		
 	</div>
-
-	<!--
-	<div class="px-4 flex flex-grow justify-end">
-        <SearchBar/>
-    </div>
-	-->
-	<div class="flex-none">
-		{#if !data.user}
-			<div class="dropdown dropdown-end">
-				<a href="/login" class="btn btn-primary">Login</a>
-				<a href="/register" class="btn btn-secondary">Register</a>
-			</div>
-		{:else}
-			<div class="dropdown dropdown-end mr-4">
-				<a href="/games" class="btn btn-primary btn-outline">Find Game</a>
-			</div>
-			<div class="dropdown dropdown-end">
-				<!-- svelte-ignore a11y-no-noninteractive-tabindex -->
-				<!-- svelte-ignore a11y-label-has-associated-control -->
-				<label tabindex="0" class="btn btn-ghost btn-circle avatar">
-					<div class="w-10 rounded-full">
-						<img src="https://upload.wikimedia.org/wikipedia/en/3/3b/SpongeBob_SquarePants_character.svg" alt="User avatar" />
-					</div>
-				</label>
-				<!-- svelte-ignore a11y-no-noninteractive-tabindex -->
-				<ul
-					tabindex="0"
-					class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
-				>
-					<li>
-						<a href="/my/projects" class="justify-between">My Projects</a>
-					</li>
-					<li><a href="/my/settings">Settings</a></li>
-					<li>
-						<form action="/logout" method="POST">
-							<button type="submit" class="w-full text-start">Logout</button>
-						</form>
-					</li>
-				</ul>
-			</div>
-		{/if}
-	</div>
 	
 	
 	
@@ -109,9 +67,9 @@
 	</div>
 {/if}
 
-<div class="py-12">
+<div class="py-12 h-[calc(100vh-48px)]">
 	<div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
-			<slot />
+		<slot />
 	</div>
 </div>
 

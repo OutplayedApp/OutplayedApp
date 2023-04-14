@@ -10,7 +10,7 @@
 	
   	<img class="fixed object-cover h-[calc(100vh-48px)] w-full" src={sky} alt="{name}"/>
 
-	<div class="absolute flex flex-col place-content-center items-center h-4/7 w-1/3 py-8 rounded-xl bg-gray-100">
+	<div class="absolute flex flex-col place-content-center items-center h-3/7 w-1/3 py-8 rounded-xl bg-gray-100">
 		<h2 class="mt-2 text-center text-3xl font-bold tracking-tight text-base-content">
 			Login to your account
 		</h2>
