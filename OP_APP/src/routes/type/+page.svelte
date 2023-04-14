@@ -1,6 +1,8 @@
 <script>
     import { onMount } from 'svelte';
     import words from './utils/words.js';
+    import sky from "$lib/images/sky2.png"
+	  let name = 'sky background'
   
     let currentWord = '';
     let userInput = '';
@@ -97,8 +99,14 @@
     margin-top: 10px;
     }
   </style>
-  
-  <div class="container">
+
+<div class=" h-[calc(100vh-48px)] w-full flex items-center justify-center overflow-hidden">
+	
+	
+  <img class="fixed object-cover h-[calc(100vh-48px)] w-full" src={sky} alt="{name}"/>
+
+	
+	<div class="fixed container">
     {#if !timerInterval}
       <button on:click={startGame}>Start</button>
     {:else}
@@ -110,3 +118,9 @@
       </div>
     {/if}
   </div>
+
+	
+
+</div>
+  
+  
