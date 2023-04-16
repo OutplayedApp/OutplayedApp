@@ -17,6 +17,7 @@ const config = {
 			neutral: colors.neutral,
 			primary: colors.primary,
 			sky: colors.sky,
+			cyan: colors.cyan,
      	 	emerald: colors.emerald,
       		indigo: colors.indigo,
 			pink: colors.pink,

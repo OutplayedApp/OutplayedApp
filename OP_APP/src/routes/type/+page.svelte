@@ -106,13 +106,15 @@
   <img class="fixed object-cover h-[calc(100vh-48px)] w-full" src={sky} alt="{name}"/>
 
 	
-	<div class="fixed container">
+	<div class="fixed container w-auto bg-gray-100 p-8 rounded-lg">
     {#if !timerInterval}
-      <button on:click={startGame}>Start</button>
+      <div class="">
+        <button on:click={startGame} class="px-2 rounded text-2xl font-bold tracking-widest hover:bg-gray-300">Start</button>
+      </div>
     {:else}
       <div class="word">{currentWord}</div>
       <input type="text" class="input" bind:value={userInput} on:input={handleInput} autofocus />
-      <div class="stats">
+      <div class="stats rounded-lg">
         <p>Words typed: {wordsTyped}</p>
         <p>Time elapsed: {(timeElapsed / 1000).toFixed(2)} seconds</p>
       </div>
