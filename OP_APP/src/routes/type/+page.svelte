@@ -1,5 +1,5 @@
 <script>
-    import { onMount } from 'svelte';
+  import {onDestroy, onMount} from 'svelte';
     import words from './utils/words.js';
     import sky from "$lib/images/sky2.png"
 	  let name = 'sky background'
@@ -61,6 +61,12 @@
     onMount(() => {
       document.addEventListener('keydown', handleKeyPress);
     });
+
+    onDestroy(() => {
+      document.removeEventListener('keydown', handleKeyPress);
+      clearInterval(timerInterval);
+    });
+
   </script>
   
   <style>

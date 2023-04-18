@@ -58,11 +58,11 @@
 {#if isMenuOpen}
 	<div transition:slide class={isMenuOpen ? 'fixed top-12 left-0 w-32 z-10 bg-midnight text-gray-100 drop-shadow-xl' : 'hidden'}>
 		{#if data.user}
-			<a on:click={linkClick} href="/account" class="block px-4 py-2 hover:bg-gray-600 hover:shadow-md">Account</a>
-			<a on:click={linkClick} href="/my/settings" class="block px-4 py-2 hover:bg-gray-600 hover:shadow-md">Settings</a>
+			<a on:click={linkClick} href="/" class="block px-4 py-2 hover:bg-gray-600 hover:shadow-md">Account</a>
+			<a on:click={linkClick} href="/" class="block px-4 py-2 hover:bg-gray-600 hover:shadow-md">Settings</a>
 		{/if}
-		<a on:click={linkClick} href="/games" class="block px-4 py-2 hover:bg-gray-600 hover:shadow-md">Games</a>
-		<a on:click={linkClick} href="/about" class="block px-4 py-2 hover:bg-gray-600 hover:shadow-md">About</a>
+		<a on:click={linkClick} href="/" class="block px-4 py-2 hover:bg-gray-600 hover:shadow-md">Games</a>
+		<a on:click={linkClick} href="/" class="block px-4 py-2 hover:bg-gray-600 hover:shadow-md">About</a>
 		<a on:click={linkClick} href="https://github.com/OutplayedApp/OutplayedApp" class="block px-4 py-2 hover:bg-gray-600">GitHub</a>
 	</div>
 {/if}
