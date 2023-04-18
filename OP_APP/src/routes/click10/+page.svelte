@@ -157,6 +157,7 @@
 <div class=" h-[calc(100vh-48px)] w-full flex items-center justify-center overflow-hidden">
     <img class="fixed object-cover h-[calc(100vh-48px)] w-full" src={sky2} alt="{name}"/>
 
+
     <div class="fixed container w-auto bg-gray-100 p-8 rounded-lg">
         {#if gameEnd}
             <div class=endingGrid>
@@ -179,12 +180,10 @@
                         +{delta} seconds
                     {/if}
                 </div>
-                <div clas=result>
-                    <div class="w-full h-full">
-                        <a href={"/click10"}>
-                            Play Again
-                        </a>
-                    </div>
+                <div class="inline-grid container w-auto bg-gray-100 rounded-lg">
+                    <button class="bg-[#456275] hover:bg-[#263344] text-white font-bold py-2 px-4 rounded" on:click={() => restartGame()}>
+                        Play Again
+                    </button>
                 </div>
             </div>
         {:else if matching}
