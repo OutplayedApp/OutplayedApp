@@ -10,8 +10,11 @@
     let startTime = 0;
     let timeElapsed = 0;
     let timerInterval;
+
+    let gameEnd = false
   
     function startGame() {
+      gameEnd = false;
         currentWord = getRandomWord();
         userInput = '';
         wordsTyped = 0;
@@ -20,8 +23,9 @@
         clearInterval(timerInterval);
         timerInterval = setInterval(() => {
             timeElapsed = new Date().getTime() - startTime;
-            if (timeElapsed >= 30000) { // Stop game after 1 minute
+            if (timeElapsed >= 10000) { // Stop game after 1 minute
                 clearInterval(timerInterval);
+                gameEnd = true;
                 const score = `Your score is ${wordsTyped} words typed in ${(timeElapsed / 1000).toFixed(2)} seconds.`;
                 alert(`Game over! ${score}`);
                 userInput = '';
@@ -63,7 +67,7 @@
     });
 
     onDestroy(() => {
-      document.removeEventListener('keydown', handleKeyPress);
+      // document.removeEventListener('keydown', handleKeyPress);
       clearInterval(timerInterval);
     });
 
@@ -123,6 +127,11 @@
       <div class="stats rounded-lg">
         <p>Words typed: {wordsTyped}</p>
         <p>Time elapsed: {(timeElapsed / 1000).toFixed(2)} seconds</p>
+        {#if gameEnd}
+          <button class="bg-[#456275] hover:bg-[#263344] text-white font-bold py-2 px-4 rounded" on:click={() => startGame()}>
+            Play Again
+          </button>
+        {/if}
       </div>
     {/if}
   </div>
