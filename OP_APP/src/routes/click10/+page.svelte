@@ -110,7 +110,7 @@
 
     function restartGame(){
         gameEnd = false;
-        matching = true;
+        matching = false;
         deploying = true;
         deployTime = 5;
         startTime = 0;
@@ -122,6 +122,7 @@
         delta = 0;
         board = [];
         tracked = [false, false, false, false, false, false, false, false, false, false];
+        clearInterval(timerInterval);
         deploy();
     }
 
