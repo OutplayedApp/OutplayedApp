@@ -45,7 +45,9 @@
 			<a on:click={linkClick} href="/login" class="px-2 mr-2 rounded text-2xl font-bold tracking-widest hover:bg-gray-600 hover:shadow-lg">LOGIN</a>
 			<a on:click={linkClick} href="/register" class="px-2 rounded text-2xl font-bold tracking-widest hover:bg-gray-600 hover:shadow-lg">REGISTER</a>
 		{:else}
-			<a on:click={linkClick} href="/login" class="px-2 rounded text-2xl font-bold tracking-widest hover:bg-gray-600 hover:shadow-lg">LOG OUT</a>
+			<form action="/logout" method="POST">
+				<button type="submit" class="px-2 mr-2 rounded text-2xl font-bold tracking-widest hover:bg-gray-600 hover:shadow-lg">LOGOUT</button>
+			</form>
 		{/if}
 	</div>
 
