@@ -23,7 +23,7 @@
         clearInterval(timerInterval);
         timerInterval = setInterval(() => {
             timeElapsed = new Date().getTime() - startTime;
-            if (timeElapsed >= 10000) { // Stop game after 1 minute
+            if (timeElapsed >= 30000) { // Stop game after 30s
                 clearInterval(timerInterval);
                 gameEnd = true;
                 const score = `Your score is ${wordsTyped} words typed in ${(timeElapsed / 1000).toFixed(2)} seconds.`;
