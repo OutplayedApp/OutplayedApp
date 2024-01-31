@@ -4,18 +4,20 @@
 	import './styles.css';
 	import Logo from '../lib/images/Logo.svg';
 	import { Navbar, NavBrand, NavLi, NavUl, NavHamburger, Avatar, Dropdown, DropdownItem, DropdownHeader, DropdownDivider } from 'flowbite-svelte';
+	import Nav from '$lib/components/Nav.svelte';
 </script>
 
 <div class="app">
 	<!-- <Header></Header> -->
 	  
-	<Navbar>
+	<!-- <Navbar>
 		<NavBrand href="/">
 			<img src={Logo} class="me-3 h-6 sm:h-9" alt="Outplyed Logo" />
 			<span class="self-center whitespace-nowrap text-xl font-semibold dark:text-white">Outplayed</span>
 		</NavBrand>
 		<NavUl>
 			<NavLi href="/" active={true}>Home</NavLi>
+			<NavLi href="/test">Test</NavLi>
 			<NavLi href="/games">Games</NavLi>
 			<NavLi href="/leaders">Leaderboards</NavLi>
 			<NavLi href="/stats">Stats</NavLi>
@@ -35,7 +37,10 @@
 			<DropdownDivider />
 			<DropdownItem>Sign out</DropdownItem>
 		</Dropdown>
-	</Navbar>
+	</Navbar> -->
+
+	<Nav></Nav>
+
 
 	<main>
 		<slot />

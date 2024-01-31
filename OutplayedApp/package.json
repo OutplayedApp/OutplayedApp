@@ -43,6 +43,7 @@
 	"type": "module",
 	"dependencies": {
 		"flowbite": "^2.2.1",
-		"flowbite-svelte": "^0.44.22"
+		"flowbite-svelte": "^0.44.22",
+		"mongodb": "^6.3.0"
 	}
 }
