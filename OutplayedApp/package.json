@@ -44,6 +44,10 @@
 	"dependencies": {
 		"flowbite": "^2.2.1",
 		"flowbite-svelte": "^0.44.22",
-		"mongodb": "^6.3.0"
+		"flowbite-svelte-blocks": "^1.1.0",
+		"flowbite-svelte-icons": "^1.0.3",
+		"flowbite-typography": "^1.0.3",
+		"mongodb": "^6.3.0",
+		"realm-web": "^2.0.0"
 	}
 }
