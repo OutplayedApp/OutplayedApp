@@ -1,12 +1,13 @@
-<script>
+<script lang="ts">
 	import '../app.pcss';
 	import Header from './Header.svelte';
 	import './styles.css';
 	import Logo from '../lib/images/Logo.svg';
 	import { Navbar, NavBrand, NavLi, NavUl, NavHamburger, Avatar, Dropdown, DropdownItem, DropdownHeader, DropdownDivider } from 'flowbite-svelte';
 	import Nav from '$lib/components/Nav.svelte';
+	import { Toast, initializeStores } from '@skeletonlabs/skeleton';
+	initializeStores();
 </script>
-
 <div class="app">
 	<!-- <Header></Header> -->
 	  
@@ -43,6 +44,7 @@
 
 
 	<main>
+		<Toast />
 		<slot />
 	</main>
 

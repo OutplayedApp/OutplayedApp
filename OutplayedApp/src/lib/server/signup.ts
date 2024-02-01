@@ -1,9 +1,11 @@
 import app from "../../db/realm";
+import db from "../../db/mongo";
 
 import bcrypt from "bcrypt";
 
-// import { User_Model } from "./models";
 import { email_regexp } from "./utils";
+
+import { writable } from "svelte/store";
 
 export async function signup_user(
 	email: string,
@@ -22,7 +24,7 @@ export async function signup_user(
 		return { error: password_error };
 	}
 
-	const name_error = verify_username(username);
+	const name_error = await verify_username(username);
 
 	if (name_error) {
 		return { error: name_error };
@@ -32,11 +34,8 @@ export async function signup_user(
 	const hashed_password = await bcrypt.hash(password, salt_rounds);
 
 	try {
-        await app.emailPasswordAuth.registerUser({
-            email: email,
-            password: password,
-        });
-        return { error: "" };
+		await put_user(username, email, hashed_password);
+        return { error: "ok" };
 	} catch (err) {
 		return { error: err?.toString() as string };
 	}
@@ -47,16 +46,15 @@ export async function verify_email(email: string): Promise<string> {
 		return "Email is required.";
 	}
 
-	if (!email.match(email_regexp)) {
-		return "Please enter a valid email.";
+	const users = db.collection("Users");
+	const res = await users.find({}, { projection: {
+		email: 1,
+	}}).toArray();
+	for(let user of res){
+		if (user.email === email) {
+			return "Email already exists.";
+		}
 	}
-
-	// const previous_user = await User_Model.findOne({ email });
-
-	// if (previous_user) {
-	// 	return "There is already an account with this email.";
-	// }
-
 	return "";
 }
 
@@ -72,7 +70,7 @@ function verify_password(password: string): string {
 	return "";
 }
 
-export function verify_username(username: string): string {
+export async function verify_username(username: string): Promise<string> {
 	if (!username) {
 		return "Name is required.";
 	}
@@ -85,5 +83,28 @@ export function verify_username(username: string): string {
         return "Name has to be less than 16 characters.";
     }
 
+	const users = db.collection("Users");
+	const res = await users.find({}, { projection: {
+		username: 1,
+	}}).toArray();
+	for(let user of res){
+		if (user.username === username) {
+			return "Username already exists.";
+		}
+	}
 	return "";
+}
+
+async function put_user(
+	username: string,
+	email: string,
+	password: string
+): Promise<void> {
+	const users = db.collection("Users");
+	const res = await users.insertOne({
+		username: username,
+		email: email,
+		password: password,
+		last_login: new Date(),
+	});
 }

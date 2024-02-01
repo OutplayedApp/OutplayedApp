@@ -1,6 +1,16 @@
+import { join } from 'path';
+// import type { Config } from 'tailwindcss';
+import { skeleton } from '@skeletonlabs/tw-plugin';
+
 /** @type {import('tailwindcss').Config}*/
 const config = {
-	content: [['./src/**/*.{html,js,svelte,ts}'],  './node_modules/flowbite-svelte/**/*.{html,js,svelte,ts}'],
+	content: [['./src/**/*.{html,js,svelte,ts}'],
+	'./node_modules/flowbite-svelte/**/*.{html,js,svelte,ts}',
+	'./src/**/*.{html,js,svelte,ts}',
+	join(require.resolve(
+		'@skeletonlabs/skeleton'),
+		'../**/*.{html,js,svelte,ts}'
+	)],
 
 	theme: {
 		extend: {
@@ -22,7 +32,7 @@ const config = {
 		}
 	  },
 
-	plugins: [require('flowbite/plugin')],
+	plugins: [require('flowbite/plugin'), skeleton],
 
 	darkMode: 'class'
 

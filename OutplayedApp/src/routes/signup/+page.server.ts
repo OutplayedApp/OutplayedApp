@@ -1,8 +1,9 @@
 import type { Actions } from './$types';
 import { signup_user } from '$lib/server/signup';
 
+
 export const actions: Actions = {
-	signup: async (event) => {
+	default: async (event) => {
 		const data = await event.request.formData();
 
 		const email = data.get("email")!.toString();
@@ -14,7 +15,6 @@ export const actions: Actions = {
 		// console.log("username", username);
 
 		await signup_user(email, password, username);
-
 		return {"data": "ok"};
 	}
 };
