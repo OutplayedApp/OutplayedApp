@@ -20,6 +20,7 @@
 		"@sveltejs/adapter-auto": "^3.0.0",
 		"@sveltejs/kit": "^2.0.0",
 		"@sveltejs/vite-plugin-svelte": "^3.0.0",
+		"@types/bcrypt": "^5.0.2",
 		"@types/eslint": "8.56.0",
 		"@typescript-eslint/eslint-plugin": "^6.0.0",
 		"@typescript-eslint/parser": "^6.0.0",
@@ -42,6 +43,7 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"bcrypt": "^5.1.1",
 		"flowbite": "^2.2.1",
 		"flowbite-svelte": "^0.44.22",
 		"flowbite-svelte-blocks": "^1.1.0",

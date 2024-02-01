@@ -2,21 +2,21 @@
     import { Section, Register } from "flowbite-svelte-blocks";
     import { Button, Checkbox, Label, Input } from "flowbite-svelte";
     import Logo from '$lib/images/logo.svg';
+	import { enhance } from "$app/forms";
+	import type { ActionData } from "./$types";
+
+	// export let form: ActionData;
 </script>
     
 <Section name="login">
-    <Register href="/">
+    <Register href="">
         <svelte:fragment slot="top">
             <img class="w-8 h-8 mr-2" src={Logo} alt="logo" />
             Outplayed
         </svelte:fragment>
         <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
-            <form class="flex flex-col space-y-6" action="/">
+            <form method="POST" class="flex flex-col space-y-6" action="?/signup">
                 <h3 class="text-xl font-medium text-gray-900 dark:text-white p-0">Create Account</h3>
-                <Label class="space-y-2">
-                    <span>Name</span>
-                    <Input type="text" name="name" placeholder="John Doe" required />
-                </Label>
                 <Label class="space-y-2">
                     <span>Username</span>
                     <Input type="text" name="username" placeholder="JohnDoe12" required />
