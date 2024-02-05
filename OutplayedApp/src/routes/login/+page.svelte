@@ -11,11 +11,11 @@
             Outplayed
         </svelte:fragment>
         <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
-            <form method="POST" class="flex flex-col space-y-6" action="?/login">
+            <form method="POST" class="flex flex-col space-y-6">
                 <h3 class="text-xl font-medium text-gray-900 dark:text-white p-0">Login to your account</h3>
                 <Label class="space-y-2">
-                    <span>Email</span>
-                    <Input type="email" name="email" placeholder="name@company.com" required />
+                    <span>Username</span>
+                    <Input type="text" name="username" placeholder="username" required />
                 </Label>
                 <Label class="space-y-2">
                     <span>Password</span>

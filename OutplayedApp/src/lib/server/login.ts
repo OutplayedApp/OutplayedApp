@@ -1,61 +1,53 @@
 import bcrypt from "bcrypt";
 import * as Realm from "realm-web";
 import app from "../../db/realm";
-
-
-import { email_regexp } from "./utils";
-// import { User_Model } from "./models";
+import db from "../../db/mongo";
 
 export async function login_user(
-	email: string,
+	username: string,
 	password: string
 ){
-
-    const credentials = Realm.Credentials.emailPassword(email, password);
-    const user = await app.logIn(credentials);
-
-    if (!app.currentUser) {
-        return { error: "no current user" };
-    }
-    console.assert(user.id === app.currentUser.id);
-
-    return user;
+    const user = await get_user(username, password);
+    return {"error": "ok"};
 }
 
-// async function get_user(
-// 	email: string,
-// 	password: string
-// ): Promise<{ error: string } | user> {
-// 	if (!email) {
-// 		return { error: "Email is required." };
-// 	}
+async function get_user(
+	username: string,
+	password: string
+): Promise<{ error: string }> {
+	if (!username) {
+		return { error: "Username is required." };
+	}
 
-// 	if (!email.match(email_regexp)) {
-// 		return { error: "Please enter a valid email." };
-// 	}
+	if (!password) {
+		return { error: "Password is required." };
+	}
 
-// 	const user = await User_Model.findOne({ email });
+    const user = await db.collection("Users").findOne({ username: username }, { projection: { password: 1} });
 
-// 	if (!user) {
-// 		return { error: "Email could not be found." };
-// 	}
+    if (!user) {
+        return { error: "User not found." };
+    }
 
-// 	if (!password) {
-// 		return { error: "Password is required." };
-// 	}
+    if (await bcrypt.compareSync(password, user.password) === false){
+        return { error: "Password is not correct." };
+    } else {
+        console.log("Password is correct.");
+    }
 
-// 	const password_is_correct = await bcrypt.compare(
-// 		password,
-// 		user.password
-// 	);
+	// const password_is_correct = await bcrypt.compare(
+	// 	password,
+	// 	user.password
+	// );
 
-// 	if (!password_is_correct) {
-// 		return { error: "Password is not correct." };
-// 	}
+	// if (!password_is_correct) {
+	// 	return { error: "Password is not correct." };
+	// }
 
-// 	const id = user._id.toString();
+	// const id = user._id.toString();
 
-// 	const name = user.name;
+	// const name = user.name;
 
-// 	return { id, email, name };
-// }
+	// return { id, email, name };
+    return {"error": "ok"};
+}

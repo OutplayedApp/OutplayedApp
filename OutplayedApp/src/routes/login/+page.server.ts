@@ -6,9 +6,13 @@ import app from "../../db/realm";
 // import { cookie_options } from "$lib/server/utils";
 
 export const actions: Actions = {
-	login: async (event) => {
-		// const data = await event.request.formData();
+	default: async (event) => {
+		const data = await event.request.formData();
 
+		const username = data.get("username")!.toString();
+		const password = data.get("password")!.toString();
+
+		await login_user(username, password);
 		// const email = (data.get("email") as string)
 		// 	?.toLowerCase()
 		// 	?.trim();
