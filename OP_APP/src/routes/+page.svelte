@@ -23,13 +23,13 @@
 	<div class=" absolute grid grid-flow-cols grid-cols-2 gap-8 h-[calc(100vh-48px)] w-10/12 place-items-center">
 	
 		
-		{#if !data.user}
-			<Box src={typegame} name={"Typing Race"} link={"/login"}/>
-			<Box src={click10} name={"Click 10"} link={"/login"}/>
-		{:else}
-			<Box src={typegame} name={"Typing Race"} link={"/type"}/>
-			<Box src={click10} name={"Click 10"} link={"/click10"}/>
-		{/if}
+		<!-- {#if !data.user} -->
+			<!-- <Box src={typegame} name={"Typing Race"} link={"/login"}/> -->
+			<!-- <Box src={click10} name={"Click 10"} link={"/login"}/> -->
+		<!-- {:else} -->
+		<Box src={typegame} name={"Typing Race"} link={"/type"}/>
+		<Box src={click10} name={"Click 10"} link={"/click10"}/>
+		<!-- {/if} -->
 		
 		
 	</div>
