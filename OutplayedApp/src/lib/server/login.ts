@@ -1,19 +1,23 @@
 import bcrypt from "bcrypt";
 import * as Realm from "realm-web";
-import app from "../../db/realm";
+// import app from "../../db/realm";
 import db from "../../db/mongo";
+import type { Cookies } from "@sveltejs/kit";
+import { makeid } from "./utils";
 
 export async function login_user(
 	username: string,
-	password: string
+	password: string,
+    cookies: Cookies
 ){
-    const user = await get_user(username, password);
+    const user = await get_user(username, password, cookies);
     return {"error": "ok"};
 }
 
 async function get_user(
 	username: string,
-	password: string
+	password: string,
+    cookies: Cookies
 ): Promise<{ error: string }> {
 	if (!username) {
 		return { error: "Username is required." };
@@ -31,23 +35,25 @@ async function get_user(
 
     if (await bcrypt.compareSync(password, user.password) === false){
         return { error: "Password is not correct." };
-    } else {
-        console.log("Password is correct.");
     }
 
-	// const password_is_correct = await bcrypt.compare(
-	// 	password,
-	// 	user.password
-	// );
+    const filter = {
+        username: username
+    };
+    const options = { upsert: false};
+    const updateDoc = {
+        $set: {
+            last_login: new Date()
+        }
+    };
 
-	// if (!password_is_correct) {
-	// 	return { error: "Password is not correct." };
-	// }
+    console.log("setting cookie");
+    cookies.set("logged_user", `${username}-${makeid(16)}`, { path: "/", maxAge: 60 * 60 * 24 * 7 });
+    console.log("set cookie");
+    console.log(cookies)
 
-	// const id = user._id.toString();
+    const result = await db.collection("Users").updateOne(filter, updateDoc, options);
 
-	// const name = user.name;
-
-	// return { id, email, name };
     return {"error": "ok"};
 }
+

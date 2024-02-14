@@ -2,7 +2,6 @@ import { fail } from "@sveltejs/kit";
 import type { Actions } from "./$types";
 import { login_user } from "$lib/server/login";
 import bcrypt from "bcrypt";
-import app from "../../db/realm";
 // import { cookie_options } from "$lib/server/utils";
 
 export const actions: Actions = {
@@ -12,7 +11,8 @@ export const actions: Actions = {
 		const username = data.get("username")!.toString();
 		const password = data.get("password")!.toString();
 
-		await login_user(username, password);
+		const user = await login_user(username, password, event.cookies);
+		console.log("finsihsed login_user in login/+page.server.ts");
 		// const email = (data.get("email") as string)
 		// 	?.toLowerCase()
 		// 	?.trim();
@@ -35,6 +35,6 @@ export const actions: Actions = {
         //     console.log(app.currentUser);
 		// 	return { user: "ok"};
 		// }
-		return { user: "ok"};
+		return { user: user};
 	}
 };
