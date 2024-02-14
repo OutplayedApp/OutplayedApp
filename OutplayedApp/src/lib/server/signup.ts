@@ -1,4 +1,3 @@
-import app from "../../db/realm";
 import db from "../../db/mongo";
 
 import bcrypt from "bcrypt";

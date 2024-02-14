@@ -4,6 +4,7 @@ import * as Realm from "realm-web";
 import db from "../../db/mongo";
 import type { Cookies } from "@sveltejs/kit";
 import { makeid } from "./utils";
+import { StarHalfStrokeSolid } from "flowbite-svelte-icons";
 
 export async function login_user(
 	username: string,
@@ -33,7 +34,7 @@ async function get_user(
         return { error: "User not found." };
     }
 
-    if (await bcrypt.compareSync(password, user.password) === false){
+    if (bcrypt.compareSync(password, user.password) === false){
         return { error: "Password is not correct." };
     }
 
@@ -46,14 +47,22 @@ async function get_user(
             last_login: new Date()
         }
     };
+    const lastLoginUpdate = await db.collection("Users").updateOne(filter, updateDoc, options);
 
-    console.log("setting cookie");
-    cookies.set("logged_user", `${username}-${makeid(16)}`, { path: "/", maxAge: 60 * 60 * 24 * 7 });
-    console.log("set cookie");
-    console.log(cookies)
+    const logged_cookie = makeid(16);
+    const salt_rounds = 10;
+	const hashed_token = await bcrypt.hash(logged_cookie, salt_rounds);
 
-    const result = await db.collection("Users").updateOne(filter, updateDoc, options);
+    filter.username = username;
+    options.upsert = true;
+    const updateDoc2 = {
+        $set: {
+            token: hashed_token
+        }
+    };
+
+    cookies.set("logged_user", `${username}-${logged_cookie}`, { path: "/", maxAge: 60 * 60 * 24 * 7 });
+    const sessionCookie = await db.collection("Sessions").updateOne(filter, updateDoc2, options);
 
     return {"error": "ok"};
 }
-
