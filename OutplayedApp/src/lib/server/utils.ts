@@ -1,3 +1,5 @@
+
+
 export const email_regexp = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/;
 
 export function makeid(length: number) {
@@ -6,8 +8,13 @@ export function makeid(length: number) {
     const charactersLength = characters.length;
     let counter = 0;
     while (counter < length) {
-      result += characters.charAt(Math.floor(Math.random() * charactersLength));
-      counter += 1;
+        result += characters.charAt(Math.floor(Math.random() * charactersLength));
+        counter += 1;
     }
     return result;
+}
+
+export function isLogged(cookies: any) {
+    // console.log(cookies);
+    console.log("ur mother")
 }
