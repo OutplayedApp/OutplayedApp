@@ -1,0 +1,11 @@
+Bugs Found in Current Version / Improvements to be Made
+1) Landing page isn't well organized
+2) Typing game has small variety
+3) Account login isn't fully functioning yet
+4) Can only click on game name
+5) The fake matchmaking gives very low completion times (literally impossible)
+6) More games
+7) Nav bar is weird
+8) Authentication being worked on
+9) ELO (ranking system potentially)
+10) nav bar doesn't work
